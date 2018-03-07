@@ -1,7 +1,7 @@
 FROM tomcat:7
 MAINTAINER Neil Carpenter <neil@twistlock.com>
 RUN apt-get update
-RUN apt-get -y install curl git nmap dnsutils dnsutils
+RUN apt-get -y install curl git nmap dnsutils 
 RUN set -ex \
 	&& rm -rf /usr/local/tomcat/webapps/* \
 	&& chmod a+x /usr/local/tomcat/bin/*.sh
