@@ -17,11 +17,11 @@ node {
     }
 
     stage('Scan image') {
-        twistlockScan ca: '', cert: '', compliancePolicy: 'warn', dockerAddress: 'unix:///var/run/docker.sock', ignoreImageBuildTime: true, image: 'neilcar/struts2_demo:latest', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: true, timeout: 10
+        twistlockScan ca: '', cert: '', compliancePolicy: 'warn', dockerAddress: 'unix:///var/run/docker.sock', ignoreImageBuildTime: true, image: 'neilcar/struts2_demo:${env.BUILD_NUMBER}', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: true, timeout: 10
     }
     
     stage('Publish scan results') {
-        twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', ignoreImageBuildTime: true, image: 'neilcar/struts2_demo:latest', key: '', logLevel: 'true', timeout: 10
+        twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', ignoreImageBuildTime: true, image: 'neilcar/struts2_demo:${env.BUILD_NUMBER}', key: '', logLevel: 'true', timeout: 10
     }
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
