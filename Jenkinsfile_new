@@ -16,7 +16,7 @@ node {
     }
 
     stage('Scan image') {
-        sh: 'docker images'
+        sh 'docker images'
         twistlockScan ca: '', cert: '', compliancePolicy: 'warn', dockerAddress: 'unix:///var/run/docker.sock', ignoreImageBuildTime: true, image: "neilcar/struts2_demo:${env.BUILD_ID}", key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: true, timeout: 10
     }
     
