@@ -1,6 +1,6 @@
 FROM tomcat:7
 MAINTAINER Neil Carpenter <neil@twistlock.com>
-ARG struts2_verion=2.3.37
+ARG struts2_verion=2.3.12
 RUN apt-get update
 RUN apt-get -y install curl git nmap dnsutils 
 RUN set -ex \
